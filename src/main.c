@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <stddef.h> // Add this line to include the definition for size_t
 #include <serial.h>
 #include <parsing.h>
 
@@ -24,10 +25,10 @@ int main(int argc, char** argv) {
 	sabertooth = open_file(port_name_2, "w+");
 	
 	// read data from RC transmitter using sbus
-	read_SBUS(sbus_packet, uint8_t, 25, sbus);
+	read_SBUS(sbus_packet, 15, 15, sbus);
 
 	// parsing sbus packet
-	channel = parse_buffer(sbus_packet);
+	channel = parse_buffer(sbus_packet, 15, channel);
 
 	// get pwm range for Sabertooth 1			 
 	pwm = interpolation(channel[0]);		//  write								
