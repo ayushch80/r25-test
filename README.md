@@ -44,15 +44,13 @@ If you are able to compile your code successfully you should see something like 
 
 # Solution
 ## Understanding
-Describe what you understood about the problem.
+The task at hand requires debugging and writing new code to allow a machine to move forward and backward using a Sabertooth controller. The main goal is to ensure smooth operation by resolving code-related issues.
 
 ## Thought Process
-After understanding the problem, describe how you decided to proceed towards solving the question.
+The first step involves understanding the format of channel values that the motor driver can handle. After identifying the format, bugs in the code must be addressed, and an interpolation function needs to be developed. There's also a "stack smashing" error that appears to occur within the parse_buffer function, which could be caused by incorrect memory handling.
 
-## Implementation
-How did you decide to implement your solution.
-
-Mention the details, such as the scaling used in the interpolation and how you tested it.
+## Implementation_
+Sabertooth controllers accept channel values in binary, decimal, and hexadecimal. After creating the interpolation function, we can address the "stack smashing" error, likely caused by memory overflows in parse_buffer. This issue might be solved by dynamically allocating memory using malloc.
 
 # Google Form
 [Link to Repo Submission](https://docs.google.com/forms/d/e/1FAIpQLSeKVbm2dqWxwA5lbEkRfzY8KF619mI5ibGs0Cm2e5wrb0hoWQ/viewform)
